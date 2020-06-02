@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.domain.Role" table="role">
+		<id name="roleId">
+			<generator class="increment"/>
+		</id>
+		<property name="name" not-null="true"/>
+		
+		<set name="businesses" table="business_role" inverse="true">
+			<key column="roleId"/>
+			<one-to-many class="com.domain.Business"/>
+		</set>
+	</class>
+</hibernate-mapping>

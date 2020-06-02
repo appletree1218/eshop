@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="user" extends="struts-default">
+		<action name="userAction_*" class="userAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/background/user/list.jsp</result>
+			<result name="add">/WEB-INF/jsp/background/user/add.jsp</result>
+			<result name="update">/WEB-INF/jsp/background/user/update.jsp</result>
+			<result name="action2action" type="redirectAction">userAction_getUserList?pageNum=1</result>
+			<result name="fuzzyList">/WEB-INF/jsp/background/user/fuzzyQuery.jsp</result>
+			<result name="fuzzyQuery">/WEB-INF/jsp/background/user/fuzzyQuery.jsp</result>
+			<result name="query">/WEB-INF/jsp/background/user/query.jsp</result>
+			<result name="queryList">/WEB-INF/jsp/background/user/query.jsp</result>
+		</action>
+		<action name="foreUserAction_*" class="userAction" method="{1}">
+			<result name="success">/WEB-INF/jsp/foreground/success.jsp</result>
+			<result name="userCenter">/WEB-INF/jsp/foreground/user/userCenter.jsp</result>
+			<result name="updatePwd">/WEB-INF/jsp/foreground/user/userCenter_updatePwd.jsp</result>
+			<result name="orderManage">/WEB-INF/jsp/foreground/user/userCenter_order.jsp</result>
+			<result name="orderDetail">/WEB-INF/jsp/foreground/user/userCenter_orderDetail.jsp</result>
+			<result name="review">/WEB-INF/jsp/foreground/user/userCenter_review.jsp</result>
+		</action>
+	</package>
+	
+	<package name="ajaxUser" extends="json-default">
+		<action name="ajaxUserAction_*" method="{1}" class="userAction">
+			<result type="json">
+				<param name="root">message</param>
+			</result>
+		</action>
+	</package>
+</struts>

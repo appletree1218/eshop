@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="com.domain.User" table="user">
+  <id name="userId">
+   <generator class="increment"/>
+  </id>
+  <property name="description"/>
+  <property name="email"/>
+  <property name="icon"/>
+  <property name="identityId"/>
+  <property name="name" not-null="true"/>
+  <property name="password" not-null="true"/>
+  <property name="phone"/>
+  <set inverse="true" name="orders" sort="unsorted" table="order_user">
+   <key column="userId"/>
+   <one-to-many class="com.domain.Orders"/>
+  </set>
+  <set inverse="true" name="reviews" sort="unsorted" table="review_user">
+   <key column="userId"/>
+   <one-to-many class="com.domain.Review"/>
+  </set>
+ </class>
+</hibernate-mapping>

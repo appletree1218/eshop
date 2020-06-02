@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+  	<constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.i18n.encoding" value="utf-8"/>
+    
+    <include file="struts/struts-login.xml"></include>
+    <include file="struts/struts-forward.xml"></include>
+    <include file="struts/struts-user.xml"></include>
+    <include file="struts/struts-business.xml"></include>
+    <include file="struts/struts-type.xml"></include>
+    <include file="struts/struts-manager.xml"></include>
+    <include file="struts/struts-shop.xml"></include>
+    <include file="struts/struts-product.xml"></include>
+    <include file="struts/struts-random.xml"></include>
+    <include file="struts/struts-show.xml"></include>
+    <include file="struts/struts-search.xml"></include>
+    <include file="struts/struts-shopcar.xml"></include>
+    <include file="struts/struts-order.xml"></include>
+    <include file="struts/struts-receiveinfo.xml"></include>
+    <include file="struts/struts-review.xml"></include>
+</struts>

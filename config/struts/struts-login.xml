@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="login" extends="struts-default" namespace="/">
+		<action name="loginAction_*" class="loginAction" method="{1}">
+			<result name="action2action" type="redirectAction">forwardAction_index.action</result>
+		</action>
+		
+		<action name="foreLoginAction_*" class="loginAction" method="{1}">
+			<result name="login">index.jsp</result>
+		</action>
+	</package>
+	<package name="ajax" extends="json-default">
+		<action name="ajaxAction_*" class="loginAction" method="{1}">
+			<result type="json">
+				<param name="root">message</param>
+			</result>
+		</action>
+		<action name="ajaxForeLoginAction_*" method="{1}" class="loginAction">
+			<result type="json">
+				<param name="root">message</param>
+			</result>
+		</action>
+	</package>
+</struts>

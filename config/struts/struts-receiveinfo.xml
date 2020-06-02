@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="receiveInfo" extends="struts-default" namespace="/">
+		<action name="receiveInfoAction_*" class="receiveInfoAction" method="{1}">
+			<result name="addUI">/WEB-INF/jsp/foreground/addReceiveInfo.jsp</result>
+			<result name="add">/WEB-INF/jsp/foreground/addReceiveInfo.jsp</result>
+			<result name="updateUI">/WEB-INF/jsp/foreground/updateReceiveInfo.jsp</result>
+		</action>
+	</package>
+	<package name="ajaxReceiveInfo" extends="json-default">
+		<action name="ajaxReceiveInfoAction_*" method="{1}" class="receiveInfoAction">
+			<result type="json">
+				<param name="root">message</param>
+			</result>
+		</action>
+	</package>
+</struts>

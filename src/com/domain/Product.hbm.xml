@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.domain.Product" table="product">
+		<id name="productId">
+			<generator class="increment"/>
+		</id>
+		<property name="amount"/>
+		<property name="description"/>
+		<property name="name" not-null="true"/>
+		<property name="price"/>
+		<property name="images"/>
+		
+		<many-to-one name="type" class="com.domain.Type" column="typeId"/>
+		<many-to-one name="status" class="com.domain.Status" column="statusId"/>
+		<many-to-one name="shop" class="com.domain.Shop" column="shopId" lazy="false"/>
+	</class>
+</hibernate-mapping>

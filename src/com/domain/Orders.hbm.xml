@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.domain.Orders" table="orders" dynamic-insert="true" dynamic-update="true">
+		<id name="orderId">
+			<generator class="increment"/>
+		</id>
+		<property name="amount"/>
+		<property name="description"/>
+		<property name="number"/>
+		<property name="createDate"/>
+		<property name="price"/>
+		
+		<set name="shopcars" table="shopcar_order" lazy="false" >
+			<key column="orderId"></key>
+			<many-to-many class="com.domain.ShopCar" >
+				<column name="scId"/>
+			</many-to-many>
+		</set>
+		
+		<set name="shops" table="order_shop">
+			<key column="orderId"></key>
+			<many-to-many class="com.domain.Shop">
+				<column name="shopId"/>
+			</many-to-many>
+		</set>
+		
+		<many-to-one name="status" class="com.domain.Status" column="statusId" lazy="false"/>
+		<many-to-one name="user" class="com.domain.User"  column="userId" lazy="false"/>
+		<many-to-one name="receiveInfo" class="com.domain.ReceiveInfo" column="receiveId" lazy="false"/>
+	</class>
+</hibernate-mapping>

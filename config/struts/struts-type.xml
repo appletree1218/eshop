@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="type" extends="struts-default">
+		<action name="typeAction_*" class="typeAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/background/type/list.jsp</result>
+			<result name="add">/WEB-INF/jsp/background/type/add.jsp</result>
+			<result name="update">/WEB-INF/jsp/background/type/update.jsp</result>
+			<result name="action2action" type="redirectAction">typeAction_getTypeList.action</result>
+		</action>
+	</package>
+	
+	<package name="ajaxType" extends="json-default">
+		<action name="ajaxTypeAction_*" method="{1}" class="typeAction">
+			<result type="json">
+				<param name="root">message</param>
+			</result>
+		</action>
+	</package>
+</struts>

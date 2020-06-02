@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<!-- Database connection settings -->
+	<property name="connection.driver_class">
+		com.mysql.jdbc.Driver
+	</property>
+	<property name="connection.url">
+		jdbc:mysql://localhost:3306/eshop
+	</property>
+	<property name="connection.username">root</property>
+	<property name="connection.password">123</property>
+	<property name="show_sql">true</property>
+	<property name="hbm2ddl.auto">update</property>
+	<mapping resource="com/domain/Business.hbm.xml" />
+	<mapping resource="com/domain/Review.hbm.xml" />
+	<mapping resource="com/domain/Role.hbm.xml" />
+	<mapping resource="com/domain/Shop.hbm.xml" />
+	<mapping resource="com/domain/ShopCar.hbm.xml" />
+	<mapping resource="com/domain/Status.hbm.xml" />
+	<mapping resource="com/domain/Type.hbm.xml" />
+	<mapping resource="com/domain/User.hbm.xml" />
+	<mapping resource="com/domain/Orders.hbm.xml" />
+	<!-- <mapping resource="com/domain/ProductShop.hbm.xml" /> -->
+	<mapping resource="com/domain/Product.hbm.xml" />
+	<mapping resource="com/domain/Manager.hbm.xml" />
+	<mapping resource="com/domain/Display.hbm.xml" />
+	<mapping resource="com/domain/ReceiveInfo.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

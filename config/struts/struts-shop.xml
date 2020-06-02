@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="shop" extends="struts-default">
+		<action name="shopAction_*" class="shopAction" method="{1}">
+			<result name="list">/WEB-INF/jsp/background/shop/list.jsp</result>
+			<result name="add">/WEB-INF/jsp/background/shop/add.jsp</result>
+			<result name="update">/WEB-INF/jsp/background/shop/update.jsp</result>
+			<result name="action2action" type="redirectAction">shopAction_getShopList?pageNum=1</result>
+			<result name="fuzzyList">/WEB-INF/jsp/background/shop/fuzzyQuery.jsp</result>
+			<result name="fuzzyQuery">/WEB-INF/jsp/background/shop/fuzzyQuery.jsp</result>
+			<result name="query">/WEB-INF/jsp/background/shop/query.jsp</result>
+			<result name="queryList">/WEB-INF/jsp/background/shop/query.jsp</result>
+		</action>
+		<action name="foreShopAction_*" class="shopAction" method="{1}">
+			<!-- <result name="search">/WEB-INF/jsp/foreground/search.jsp</result> -->
+			<result name="success">/WEB-INF/jsp/foreground/success.jsp</result>
+		</action>
+	</package>
+	<package name="ajaxShop" extends="json-default">
+		<action name="ajaxShopAction_*" class="shopAction" method="{1}">
+			<result type="json">
+				<param name="root">message</param>
+			</result>
+		</action>
+	</package>
+</struts>

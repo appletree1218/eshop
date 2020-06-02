@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<import resource="applicationContext-db.xml"/>
+	<import resource="applicationContext-login.xml"/>
+	<import resource="applicationContext-user.xml"/>
+	<import resource="applicationContext-shopCar.xml"/>
+	<import resource="applicationContext-business.xml"/>
+	<import resource="applicationContext-type.xml"/>
+	<import resource="applicationContext-role.xml"/>
+	<import resource="applicationContext-shop.xml"/>
+	<import resource="applicationContext-status.xml"/>
+	<import resource="applicationContext-manager.xml"/>
+	<import resource="applicationContext-forward.xml"/>
+	<import resource="applicationContext-product.xml"/>
+	<import resource="applicationContext-show.xml"/>
+	<import resource="applicationContext-search.xml"/>
+	<import resource="applicationContext-display.xml"/>
+	<import resource="applicationContext-order.xml"/>
+	<import resource="applicationContext-receiveinfo.xml"/>
+	<import resource="applicationContext-review.xml"/>
+</beans>

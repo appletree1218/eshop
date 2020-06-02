@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="product" extends="struts-default" namespace="/">
+		<action name="productAction_*" class="productAction" method="{1}">
+			<!-- <result name="search">/WEB-INF/jsp/foreground/search.jsp</result> -->
+			<result name="addProduct">/WEB-INF/jsp/foreground/business/addProduct.jsp</result>
+			<result name="updateProductUI">/WEB-INF/jsp/foreground/business/updateProduct.jsp</result>
+			<result name="updateProduct" type="redirectAction">productAction_updateProductUI.action</result>
+			<result name="productDetail">/WEB-INF/jsp/foreground/productDetail.jsp</result>
+		</action>
+	</package>
+	<package name="ajaxProduct" extends="json-default">
+		<action name="ajaxProductAction_*" class="productAction" method="{1}">
+			<result type="json">
+				<param name="root">message</param>
+			</result>
+		</action>
+	</package>
+</struts>

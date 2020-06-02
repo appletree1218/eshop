@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.domain.Shop" table="shop">
+		<id name="shopId">
+			<generator class="increment"/>
+		</id>
+		<property name="address"/>
+		<property name="description"/>
+		<property name="regTime"/>
+		<property name="logo"/>
+		<property name="name" not-null="true"/>
+		
+		<many-to-one name="status" class="com.domain.Status" column="statusId"/>
+		
+		<set name="businesses" table="business_shop" inverse="true">
+			<key column="shopId"/>		
+			<one-to-many class="com.domain.Business"/>
+		</set>
+		
+		<set name="products" table="product_shop" inverse="true" lazy="false">
+			<key column="shopId"/>
+			<one-to-many class="com.domain.Product"/>
+		</set>
+		
+		<set name="orders" table="order_shop" inverse="true">
+			<key column="shopId"/>
+			<many-to-many class="com.domain.Orders">
+				<column name="orderId"></column>
+			</many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

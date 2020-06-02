@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.domain.Review" table="review">
+		<id name="reviewId">
+			<generator class="increment"/>
+		</id>
+		<property name="content"/>
+		<property name="reviewTime"/>
+		
+		<many-to-one name="user" class="com.domain.User" column="userId"/>
+		<many-to-one name="product" class="com.domain.Product" column="productId"/>
+	</class>
+</hibernate-mapping>

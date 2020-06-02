@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.domain.Status" table="status">
+		<id name="statusId">
+			<generator class="increment"/>
+		</id>
+		<property name="name" not-null="true"/>
+		<property name="sign" />
+		
+		<set name="orders" inverse="true">
+			<key column="statusId"/>
+			<one-to-many class="com.domain.Orders"/>
+		</set>
+		<set name="products" inverse="true">
+			<key column="statusId"/>
+			<one-to-many class="com.domain.Product"/>
+		</set>
+		<set name="shops" inverse="true">
+			<key column="statusId"/>
+			<one-to-many class="com.domain.Shop"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="forward" extends="struts-default" namespace="/">
+		<action name="forwardAction_*" class="forwardAction" method="{1}">
+			<result name="index">/WEB-INF/jsp/background/index.jsp</result>
+			<result name="left">/WEB-INF/jsp/background/left.jsp</result>
+			<result name="right">/WEB-INF/jsp/background/right.jsp</result>
+			<result name="top">/WEB-INF/jsp/background/top.jsp</result>
+			<result name="bottom">/WEB-INF/jsp/background/bottom.jsp</result>
+			<result name="quit">login.jsp</result>
+			<result name="update">/WEB-INF/jsp/background/update.jsp</result>
+		</action>
+		<action name="foreForwardAction_*" class="forwardAction" method="{1}">
+			<result name="index">/WEB-INF/jsp/foreground/index.jsp</result>
+			<result name="catalogIndex">/WEB-INF/jsp/foreground/catalogIndex.jsp</result>
+			<result name="main">index.jsp</result>
+			<result name="login">/WEB-INF/jsp/foreground/login.jsp</result>
+			<result name="register">/WEB-INF/jsp/foreground/register.jsp</result>
+			<result name="registerShop">/WEB-INF/jsp/foreground/registerShop.jsp</result>
+			<result name="shopCar">/WEB-INF/jsp/foreground/shopCar.jsp</result>
+			<result name="back">index.jsp</result>
+			<result name="businessCenter">/WEB-INF/jsp/foreground/business/businessCenter.jsp</result>
+			<result name="userCenter">/WEB-INF/jsp/foreground/user/userCenter.jsp</result>
+			<result name="search">/WEB-INF/jsp/foreground/search.jsp</result>
+			<result name="queryAndAdd">/WEB-INF/jsp/foreground/business/queryAndAdd.jsp</result>
+			<result name="addProduct">/WEB-INF/jsp/foreground/business/addProduct.jsp</result>
+			<result name="pay">/WEB-INF/jsp/foreground/pay.jsp</result>
+		</action>
+	</package>
+	<package name="ajaxForward" extends="json-default">
+		<action name="ajaxForwardAction_*" class="forwardAction" method="{1}">
+			<result type="json">
+				<param name="root">childList</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.domain.Type" table="type">
+		<id name="typeId">
+			<generator class="increment"/>
+		</id>
+		<property name="name" not-null="true"/>
+		<property name="description"/>
+		<property name="parentId"/>
+		<property name="imgPath"/>
+		
+		<set name="products" table="product_type" inverse="true">
+			<key column="typeId"/>
+			<one-to-many class="com.domain.Product"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.domain.ReceiveInfo" table="receiveinfo">
+		<id name="receiveId">
+			<generator class="increment"/>
+		</id>
+		<property name="receiveName"/>
+		<property name="address"/>
+		<property name="phone"/>
+		<property name="city"/>
+		<property name="province"/>
+		<property name="country"/>
+		
+		<many-to-one name="user" class="com.domain.User" column="userId"/>
+		<set name="orders" inverse="true">
+			<key column="receiveId"/>
+			<one-to-many class="com.domain.Orders"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="show" extends="struts-default" namespace="/">
+		<action name="showAction_*" class="showAction" method="{1}">
+			<result name="loginAdver">/WEB-INF/jsp/background/show/loginAdver.jsp</result>
+			<result name="showAdver">/WEB-INF/jsp/background/show/showAdver.jsp</result>
+			<result name="showProduct">/WEB-INF/jsp/background/show/showProduct.jsp</result>
+		</action>
+	</package>
+	<package name="ajaxShow" extends="json-default">
+		<action name="ajaxShowAction_*" method="{1}" class="showAction">
+			<result type="json">
+				<param name="root">message</param>
+			</result>
+		</action>
+	</package>
+</struts>
